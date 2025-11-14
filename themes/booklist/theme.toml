@@ -1,0 +1,12 @@
+name = "Booklist"
+license = "MIT"
+licenselink = "https://github.com/yourusername/hugo-theme-booklist/blob/master/LICENSE"
+description = "书单主题 - 专注于书籍推荐列表和主题书单,优化 SEO 结构化数据"
+homepage = "https://github.com/yourusername/hugo-theme-booklist"
+tags = ["booklist", "collection", "reading list", "recommendation", "seo", "schema.org"]
+features = ["Schema.org ItemList markup", "Schema.org Collection", "Google Rich Results", "SEO optimized", "内链支持"]
+min_version = "0.110.0"
+
+[author]
+  name = "Your Name"
+  homepage = "https://example.com"

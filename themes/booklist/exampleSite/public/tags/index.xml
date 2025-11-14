@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on 我的书单推荐</title>
+    <link>http://localhost:1315/tags/</link>
+    <description>Recent content in Tags on 我的书单推荐</description>
+    <generator>Hugo</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Sat, 04 Oct 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1315/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>必读</title>
+      <link>http://localhost:1315/tags/%E5%BF%85%E8%AF%BB/</link>
+      <pubDate>Sat, 04 Oct 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1315/tags/%E5%BF%85%E8%AF%BB/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>科幻</title>
+      <link>http://localhost:1315/tags/%E7%A7%91%E5%B9%BB/</link>
+      <pubDate>Sat, 04 Oct 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1315/tags/%E7%A7%91%E5%B9%BB/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>经典</title>
+      <link>http://localhost:1315/tags/%E7%BB%8F%E5%85%B8/</link>
+      <pubDate>Sat, 04 Oct 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1315/tags/%E7%BB%8F%E5%85%B8/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>冒险</title>
+      <link>http://localhost:1315/tags/%E5%86%92%E9%99%A9/</link>
+      <pubDate>Fri, 03 Oct 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1315/tags/%E5%86%92%E9%99%A9/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>奇幻</title>
+      <link>http://localhost:1315/tags/%E5%A5%87%E5%B9%BB/</link>
+      <pubDate>Fri, 03 Oct 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1315/tags/%E5%A5%87%E5%B9%BB/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>魔法</title>
+      <link>http://localhost:1315/tags/%E9%AD%94%E6%B3%95/</link>
+      <pubDate>Fri, 03 Oct 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1315/tags/%E9%AD%94%E6%B3%95/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,28 @@
+{{/*
+  Internal Link Shortcode - SEO 优化的内链生成器
+
+  使用方法:
+  {{< internal-link novel-id="12345" text="点击阅读原文" >}}
+  {{< internal-link novel-id="12345" >}} (使用默认文本)
+
+  参数:
+  - novel-id (必填): 小说ID,用于构建主站URL
+  - text (可选): 锚文本,默认为"阅读原文"
+*/}}
+
+{{ $novelId := .Get "novel-id" }}
+{{ if not $novelId }}
+  {{ errorf "internal-link shortcode requires 'novel-id' parameter. Usage: {{< internal-link novel-id=\"12345\" >}}" }}
+{{ end }}
+{{ $text := .Get "text" | default "阅读原文" }}
+{{ $mainSiteUrl := .Site.Params.mainSiteUrl | default "https://example.com" }}
+{{ $novelUrl := printf "%s/novel/%s" $mainSiteUrl $novelId }}
+
+<a href="{{ $novelUrl }}"
+   class="internal-link"
+   rel="noopener nofollow"
+   target="_blank"
+   title="在主站阅读完整内容">
+  <span class="link-icon">🔗</span>
+  <span class="link-text">{{ $text }}</span>
+</a>

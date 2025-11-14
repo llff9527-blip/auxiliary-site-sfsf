@@ -1,0 +1,20 @@
+baseURL = "https://example.com/"
+languageCode = "zh-CN"
+title = "我的书单推荐"
+themesDir = "../../"
+theme = "booklist"
+
+[params]
+  description = "精选书单,分享阅读推荐"
+  author = "书单推荐者"
+  mainSiteUrl = "https://main-site.example.com"
+
+# 菜单配置
+[[menu.main]]
+  name = "全部书单"
+  url = "/lists/"
+  weight = 1
+
+[taxonomies]
+  tag = "tags"
+  category = "categories"

@@ -1,0 +1,34 @@
+{{ define "main" }}
+<div class="home">
+    <section class="site-intro">
+        <h1>{{ .Site.Title }}</h1>
+        {{ with .Site.Params.description }}
+        <p class="site-description">{{ . }}</p>
+        {{ end }}
+    </section>
+
+    <section class="recent-booklists">
+        <h2>最新书单</h2>
+        <div class="booklists-grid">
+            {{ range first 12 (where .Site.RegularPages "Type" "lists") }}
+            <article class="booklist-card">
+                <a href="{{ .Permalink }}" class="booklist-link">
+                    {{ with .Params.image }}
+                    <img src="{{ . | absURL }}" alt="{{ $.Title }}" class="booklist-card-cover">
+                    {{ else }}
+                    <div class="booklist-card-placeholder"><span>📚</span></div>
+                    {{ end }}
+                    <div class="booklist-card-info">
+                        <h3 class="booklist-card-title">{{ .Title }}</h3>
+                        {{ with .Params.category }}<span class="booklist-card-category">{{ . }}</span>{{ end }}
+                        {{ with .Params.books }}<p class="booklist-card-count">共 {{ len . }} 本书</p>{{ end }}
+                        <p class="booklist-card-summary">{{ .Summary | plainify | truncate 100 }}</p>
+                        <time class="booklist-date" datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006年01月02日" }}</time>
+                    </div>
+                </a>
+            </article>
+            {{ end }}
+        </div>
+    </section>
+</div>
+{{ end }}

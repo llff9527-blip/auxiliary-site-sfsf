@@ -1,0 +1,411 @@
+/* ==================== Booklist 主题 - 精致书单收藏风格 ==================== */
+/* 灵感来源: Pinterest, Notion, Airtable */
+
+:root {
+    /* 书单主题配色 - 柔和多彩 */
+    --list-primary: #6366F1;        /* 靛蓝 */
+    --list-secondary: #8B5CF6;      /* 紫色 */
+    --list-accent: #EC4899;         /* 粉红 */
+    --list-success: #10B981;        /* 绿色 */
+    --list-warning: #F59E0B;        /* 橙色 */
+    --list-text: #1F2937;           /* 深灰 */
+    --list-text-light: #6B7280;     /* 中灰 */
+    --list-bg: #F9FAFB;             /* 浅灰背景 */
+    --list-bg-card: #FFFFFF;        /* 白色卡片 */
+    --list-border: #E5E7EB;         /* 边框灰 */
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", sans-serif;
+    line-height: 1.6;
+    color: var(--list-text);
+    background-color: var(--list-bg);
+}
+
+/* ==================== Header - 现代极简 ==================== */
+.site-header {
+    background: linear-gradient(135deg, var(--list-primary), var(--list-secondary));
+    border-bottom: none;
+    padding: 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 20px rgba(99,102,241,0.15);
+}
+
+.header-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 1.25rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.site-logo {
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: white;
+    letter-spacing: -0.5px;
+}
+
+.site-nav ul {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+}
+
+.site-nav a {
+    color: rgba(255,255,255,0.9);
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.site-nav a:hover {
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* ==================== Hero ==================== */
+.site-intro {
+    background: linear-gradient(135deg, var(--list-primary), var(--list-secondary), var(--list-accent));
+    padding: 5rem 2rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.site-intro::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+    background-size: 30px 30px;
+    animation: drift 20s linear infinite;
+}
+
+@keyframes drift {
+    from { transform: translate(0, 0); }
+    to { transform: translate(30px, 30px); }
+}
+
+.site-intro h1 {
+    font-size: 3.5rem;
+    color: white;
+    margin-bottom: 1rem;
+    font-weight: 800;
+    position: relative;
+    z-index: 1;
+}
+
+.site-description {
+    font-size: 1.3rem;
+    color: rgba(255,255,255,0.95);
+    max-width: 700px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+/* ==================== 书单网格 - 瀑布流风格 ==================== */
+.recent-booklists {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+}
+
+.recent-booklists h2 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 3rem;
+    color: var(--list-text);
+    text-align: center;
+}
+
+.booklists-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 2rem;
+}
+
+/* 书单卡片 - 现代卡片设计 */
+.booklist-card {
+    background-color: var(--list-bg-card);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 1px solid var(--list-border);
+    position: relative;
+}
+
+.booklist-card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 20px 40px rgba(99,102,241,0.15);
+}
+
+.booklist-link {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+}
+
+.booklist-card-cover,
+.booklist-card-placeholder {
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+}
+
+.booklist-card-placeholder {
+    background: linear-gradient(135deg, var(--list-primary), var(--list-secondary), var(--list-accent));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 5rem;
+    position: relative;
+}
+
+.booklist-card-info {
+    padding: 2rem;
+}
+
+.booklist-card-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--list-text);
+    margin-bottom: 1rem;
+    line-height: 1.3;
+}
+
+.booklist-card-category {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--list-primary), var(--list-secondary));
+    color: white;
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.booklist-card-count {
+    color: var(--list-text-light);
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
+
+.booklist-card-count::before {
+    content: "📚 ";
+}
+
+.booklist-card-summary {
+    color: var(--list-text-light);
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+}
+
+.booklist-date {
+    color: var(--list-text-light);
+    font-size: 0.9rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--list-border);
+    display: block;
+}
+
+/* ==================== 书单详情页 ==================== */
+.booklist-single {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+}
+
+.booklist-title {
+    font-size: 3rem;
+    color: var(--list-text);
+    margin-bottom: 1.5rem;
+    font-weight: 800;
+    line-height: 1.2;
+}
+
+.booklist-meta {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 2px solid var(--list-border);
+}
+
+.booklist-category {
+    background: linear-gradient(135deg, var(--list-primary), var(--list-secondary));
+    color: white;
+    padding: 0.6rem 1.5rem;
+    border-radius: 24px;
+    font-weight: 700;
+    font-size: 0.95rem;
+}
+
+.book-count {
+    color: var(--list-text-light);
+    font-weight: 600;
+}
+
+/* 书籍列表 - 精美卡片 */
+.books-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    margin-top: 3rem;
+}
+
+.book-item {
+    background: var(--list-bg-card);
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+    border: 1px solid var(--list-border);
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.book-item:hover {
+    transform: translateX(8px);
+    box-shadow: 0 8px 24px rgba(99,102,241,0.12);
+}
+
+.book-number {
+    position: absolute;
+    top: -15px;
+    left: 20px;
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, var(--list-accent), var(--list-warning));
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: 800;
+    box-shadow: 0 4px 12px rgba(236,72,153,0.3);
+}
+
+.book-content {
+    display: flex;
+    gap: 2rem;
+    padding-top: 1rem;
+}
+
+.book-cover {
+    width: 150px;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+}
+
+.book-info {
+    flex: 1;
+}
+
+.book-title {
+    font-size: 1.75rem;
+    color: var(--list-text);
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.book-info p {
+    margin-bottom: 0.75rem;
+    color: var(--list-text);
+}
+
+.book-rating .rating-stars {
+    color: #FBBF24;
+    font-size: 1.5rem;
+}
+
+.book-description {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px dashed var(--list-border);
+    line-height: 1.8;
+    color: var(--list-text-light);
+}
+
+/* 内链 - 现代按钮 */
+.internal-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: linear-gradient(135deg, var(--list-primary), var(--list-secondary));
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 12px;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    margin: 2rem 0;
+    text-decoration: none;
+    box-shadow: 0 4px 16px rgba(99,102,241,0.3);
+}
+
+.internal-link:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(99,102,241,0.4);
+}
+
+/* 标签 */
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 2px solid var(--list-border);
+}
+
+.tag {
+    background: var(--list-bg);
+    color: var(--list-text);
+    padding: 0.6rem 1.25rem;
+    border-radius: 20px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-decoration: none;
+    border: 2px solid var(--list-border);
+    transition: all 0.3s ease;
+}
+
+.tag:hover {
+    background: linear-gradient(135deg, var(--list-primary), var(--list-secondary));
+    color: white;
+    border-color: transparent;
+    transform: scale(1.05);
+}
+
+/* Footer */
+.site-footer {
+    background: linear-gradient(135deg, var(--list-text), #374151);
+    color: rgba(255,255,255,0.8);
+    padding: 3rem 0;
+    margin-top: 5rem;
+    text-align: center;
+}
+
+/* 响应式 */
+@media (max-width: 768px) {
+    .site-intro h1 { font-size: 2.5rem; }
+    .booklists-grid { grid-template-columns: 1fr; }
+    .booklist-title { font-size: 2rem; }
+    .book-content { flex-direction: column; }
+    .book-cover { width: 100%; max-width: 250px; margin: 0 auto; }
+}

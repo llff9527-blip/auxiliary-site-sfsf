@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>精选书单 on 我的书单推荐</title>
+    <link>http://localhost:1315/lists/</link>
+    <description>Recent content in 精选书单 on 我的书单推荐</description>
+    <generator>Hugo</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Sat, 04 Oct 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1315/lists/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>科幻小说必读书单</title>
+      <link>http://localhost:1315/lists/scifi-must-read/</link>
+      <pubDate>Sat, 04 Oct 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1315/lists/scifi-must-read/</guid>
+      <description>&lt;p&gt;这份书单收录了10部科幻文学史上的巅峰之作,从硬科幻到软科幻,从太空歌剧到赛博朋克,涵盖了科幻小说的各个重要流派。&lt;/p&gt;&#xA;&lt;p&gt;无论你是科幻新手还是资深书迷,这些作品都值得反复阅读和思考。它们不仅提供了精彩的故事,更重要的是引发了关于人类未来、科技伦理和宇宙本质的深刻思考。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>奇幻文学经典书单</title>
+      <link>http://localhost:1315/lists/fantasy-classics/</link>
+      <pubDate>Fri, 03 Oct 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1315/lists/fantasy-classics/</guid>
+      <description>&lt;p&gt;奇幻文学带我们进入充满魔法、龙与勇士的奇妙世界。这些作品构建了宏大的世界观,创造了令人难忘的角色,讲述了永恒的英雄故事。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

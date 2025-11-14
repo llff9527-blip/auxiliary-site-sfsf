@@ -1,0 +1,46 @@
+{{ define "main" }}
+<div class="booklists-collection">
+    <header class="collection-header">
+        <h1>{{ .Title }}</h1>
+        {{ with .Content }}
+        <div class="collection-description">
+            {{ . }}
+        </div>
+        {{ end }}
+    </header>
+
+    <div class="booklists-grid">
+        {{ range .Pages }}
+        <article class="booklist-card">
+            <a href="{{ .Permalink }}" class="booklist-link">
+                {{ with .Params.image }}
+                <img src="{{ . | absURL }}" alt="{{ $.Title }}" class="booklist-card-cover">
+                {{ else }}
+                <div class="booklist-card-placeholder">
+                    <span>📚</span>
+                </div>
+                {{ end }}
+
+                <div class="booklist-card-info">
+                    <h2 class="booklist-card-title">{{ .Title }}</h2>
+
+                    {{ with .Params.category }}
+                    <span class="booklist-card-category">{{ . }}</span>
+                    {{ end }}
+
+                    {{ with .Params.books }}
+                    <p class="booklist-card-count">共 {{ len . }} 本书</p>
+                    {{ end }}
+
+                    <p class="booklist-card-summary">{{ .Summary | plainify | truncate 120 }}</p>
+
+                    <time class="booklist-date" datetime="{{ .Date.Format "2006-01-02" }}">
+                        {{ .Date.Format "2006年01月02日" }}
+                    </time>
+                </div>
+            </a>
+        </article>
+        {{ end }}
+    </div>
+</div>
+{{ end }}

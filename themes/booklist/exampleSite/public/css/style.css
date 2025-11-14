@@ -1,0 +1,405 @@
+/* ==================== Booklist 主题 - Clean White 极简风格 ==================== */
+/* 改造自: Pinterest, Notion, Airtable */
+/* Last updated: 2025-10-04 15:30 */
+
+:root {
+    /* Clean White 标准配色 */
+    --list-primary: #007bff;        /* 蓝色链接 */
+    --list-text: #333;              /* 深灰文字 */
+    --list-text-light: #868e96;     /* 浅灰 meta */
+    --list-bg: #fff;                /* 纯白背景 */
+    --list-bg-card: #fff;           /* 白色卡片 */
+    --list-border: #eee;            /* 浅灰边框 */
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", sans-serif;
+    line-height: 1.7;
+    color: var(--list-text);
+    background-color: var(--list-bg);
+}
+
+/* ==================== Header - Clean White 风格 ==================== */
+.site-header {
+    background-color: var(--list-bg);
+    border-bottom: 1px solid var(--list-border);
+    padding: 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 1.25rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.site-logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--list-text);
+}
+
+.site-nav ul {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+}
+
+.site-nav a {
+    color: var(--list-text);
+    font-weight: 500;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.site-nav a:hover {
+    color: var(--list-primary);
+}
+
+/* ==================== Hero - Clean White 风格 ==================== */
+.site-intro {
+    background-color: var(--list-bg);
+    padding: 4rem 2rem 3rem;
+    text-align: center;
+    border-bottom: 1px solid var(--list-border);
+}
+
+.site-intro::before {
+    display: none;
+}
+
+@keyframes drift {
+    from { transform: translate(0, 0); }
+    to { transform: translate(30px, 30px); }
+}
+
+.site-intro h1 {
+    font-size: 2.5rem;
+    color: var(--list-text);
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.site-description {
+    font-size: 1.125rem;
+    color: var(--list-text-light);
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* ==================== 书单网格 - Clean White 风格 ==================== */
+.recent-booklists,
+.booklists-collection {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 3rem 2rem;
+}
+
+.recent-booklists h2,
+.collection-header h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    color: var(--list-text);
+    text-align: center;
+}
+
+.collection-description {
+    text-align: center;
+    color: var(--list-text-light);
+    margin-bottom: 3rem;
+    font-size: 1.125rem;
+}
+
+.booklists-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 2rem;
+    justify-items: center;
+}
+
+/* 书单卡片 - Clean White 极简风格 */
+.booklist-card {
+    background-color: var(--list-bg-card);
+    border: 1px solid var(--list-border);
+    overflow: hidden;
+}
+
+.booklist-card:hover {
+}
+
+.booklist-link {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+}
+
+.booklist-card-cover,
+.booklist-card-placeholder {
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+}
+
+.booklist-card-placeholder {
+    background-color: #f0f0f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
+    color: #ccc;
+}
+
+.booklist-card-info {
+    padding: 1.5rem;
+}
+
+.booklist-card-title {
+    font-size: 1.375rem;
+    font-weight: 700;
+    color: var(--list-primary);
+    margin-bottom: 0.75rem;
+    line-height: 1.3;
+}
+
+.booklist-link:hover .booklist-card-title {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+.booklist-card-category {
+    display: inline-block;
+    color: var(--list-text-light);
+    padding: 0;
+    font-size: 0.875rem;
+    font-weight: 500;
+    margin-bottom: 0.75rem;
+}
+
+.booklist-card-category::before {
+    content: "#";
+    margin-right: 2px;
+}
+
+.booklist-card-count {
+    color: var(--list-text-light);
+    font-size: 0.875rem;
+    margin-bottom: 0.75rem;
+    font-weight: 400;
+}
+
+.booklist-card-count::before {
+    display: none;
+}
+
+.booklist-card-summary {
+    color: var(--list-text-light);
+    font-size: 0.9375rem;
+    line-height: 1.7;
+    margin-bottom: 1rem;
+}
+
+.booklist-date {
+    color: var(--list-text-light);
+    font-size: 0.875rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--list-border);
+    display: block;
+}
+
+/* ==================== 书单详情页 - Clean White 风格 ==================== */
+.booklist-single {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 3rem 2rem;
+}
+
+.booklist-title {
+    font-size: 2.25rem;
+    color: var(--list-text);
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+.booklist-meta {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--list-border);
+}
+
+.booklist-category {
+    color: var(--list-text-light);
+    padding: 0;
+    font-weight: 500;
+    font-size: 0.9375rem;
+}
+
+.booklist-category::before {
+    content: "#";
+    margin-right: 2px;
+}
+
+.book-count {
+    color: var(--list-text-light);
+    font-weight: 400;
+}
+
+/* 书籍列表 - Clean White 风格 */
+.books-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-top: 2.5rem;
+}
+
+.book-item {
+    background: var(--list-bg-card);
+    padding: 2rem;
+    border: 1px solid var(--list-border);
+    position: relative;
+}
+
+.book-item:hover {
+}
+
+.book-number {
+    position: absolute;
+    top: -15px;
+    left: 20px;
+    width: 45px;
+    height: 45px;
+    background-color: var(--list-text);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+.book-content {
+    display: flex;
+    gap: 2rem;
+    padding-top: 1rem;
+}
+
+.book-cover {
+    width: 150px;
+    height: auto;
+    border: 1px solid var(--list-border);
+}
+
+.book-info {
+    flex: 1;
+}
+
+.book-title {
+    font-size: 1.5rem;
+    color: var(--list-text);
+    margin-bottom: 0.75rem;
+    font-weight: 700;
+}
+
+.book-info p {
+    margin-bottom: 0.5rem;
+    color: var(--list-text);
+    font-size: 0.9375rem;
+}
+
+.book-rating .rating-stars {
+    color: #ffc107;
+    font-size: 1.25rem;
+}
+
+.book-description {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--list-border);
+    line-height: 1.7;
+    color: var(--list-text-light);
+}
+
+/* 内链 - Clean White 蓝色链接风格 */
+.internal-link {
+    display: inline-block;
+    color: var(--list-primary);
+    padding: 0.75rem 1.5rem;
+    border: 1px solid var(--list-border);
+    margin: 1.5rem 0;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.internal-link:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+/* 标签 - Clean White 风格 */
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--list-border);
+}
+
+.tag {
+    color: var(--list-text-light);
+    padding: 0.25rem 0;
+    font-size: 0.875rem;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.tag::before {
+    content: "#";
+    margin-right: 2px;
+}
+
+.tag:hover {
+    color: var(--list-primary);
+}
+
+/* Footer - Clean White 风格 */
+.site-footer {
+    background-color: var(--list-bg);
+    color: var(--list-text-light);
+    padding: 2.5rem 0;
+    margin-top: 4rem;
+    text-align: center;
+    border-top: 1px solid var(--list-border);
+}
+
+.site-footer a {
+    color: var(--list-primary);
+    text-decoration: none;
+}
+
+.site-footer a:hover {
+    text-decoration: underline;
+}
+
+/* 响应式 */
+@media (max-width: 768px) {
+    .site-intro h1 { font-size: 2rem; }
+    .booklists-grid { grid-template-columns: 1fr; }
+    .booklist-title { font-size: 1.75rem; }
+    .book-content { flex-direction: column; }
+    .book-cover { width: 100%; max-width: 250px; margin: 0 auto; }
+}

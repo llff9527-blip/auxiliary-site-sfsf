@@ -1,0 +1,97 @@
+{{ define "main" }}
+<article class="booklist-single">
+    <!-- 书单头部 -->
+    <header class="booklist-header">
+        <h1 class="booklist-title">{{ .Title }}</h1>
+
+        <div class="booklist-meta">
+            {{ with .Params.category }}
+            <span class="booklist-category">{{ . }}</span>
+            {{ end }}
+
+            <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006年01月02日" }}</time>
+
+            {{ with .Params.books }}
+            <span class="book-count">共 {{ len . }} 本书</span>
+            {{ end }}
+        </div>
+
+        {{ with .Params.image }}
+        <img src="{{ . | absURL }}" alt="{{ $.Title }}" class="booklist-cover">
+        {{ end }}
+    </header>
+
+    <!-- 书单介绍 -->
+    <div class="booklist-intro">
+        {{ .Content }}
+    </div>
+
+    <!-- 书籍列表 -->
+    {{ with .Params.books }}
+    <section class="books-section">
+        <h2 class="section-title">书单列表</h2>
+
+        <div class="books-list">
+            {{ range $index, $book := . }}
+            <div class="book-item">
+                <div class="book-number">{{ add $index 1 }}</div>
+
+                <div class="book-content">
+                    {{ with $book.image }}
+                    <img src="{{ . | absURL }}" alt="{{ $book.title }}" class="book-cover">
+                    {{ end }}
+
+                    <div class="book-info">
+                        <h3 class="book-title">{{ $book.title }}</h3>
+
+                        {{ with $book.author }}
+                        <p class="book-author"><strong>作者:</strong> {{ . }}</p>
+                        {{ end }}
+
+                        {{ with $book.isbn }}
+                        <p class="book-isbn"><strong>ISBN:</strong> {{ . }}</p>
+                        {{ end }}
+
+                        {{ with $book.published_year }}
+                        <p class="book-year"><strong>出版年份:</strong> {{ . }}</p>
+                        {{ end }}
+
+                        {{ with $book.rating }}
+                        <div class="book-rating">
+                            <strong>评分:</strong>
+                            <span class="rating-stars">
+                                {{ range seq (int .) }}★{{ end }}{{ range seq (sub 5 (int $book.rating)) }}☆{{ end }}
+                            </span>
+                            <span class="rating-value">({{ . }}/5)</span>
+                        </div>
+                        {{ end }}
+
+                        {{ with $book.description }}
+                        <p class="book-description">{{ . | markdownify }}</p>
+                        {{ end }}
+
+                        {{ with $book.novel_id }}
+                        <div class="book-link">
+                            {{/* 内链样式 */}}
+                            {{ $text := $book.link_text | default "查看详情" }}
+                            <a href="{{ $.Site.Params.mainSiteUrl }}/novel/{{ . }}" class="internal-link" rel="noopener nofollow" target="_blank">
+                                <span class="link-text">{{ $text }}</span>
+                            </a>
+                        </div>
+                        {{ end }}
+                    </div>
+                </div>
+            </div>
+            {{ end }}
+        </div>
+    </section>
+    {{ end }}
+
+    <!-- 标签 -->
+    {{ if .Params.tags }}
+    <footer class="booklist-footer">
+        {{ partial "tags.html" . }}
+    </footer>
+    {{ end }}
+</article>
+{{ end }}
